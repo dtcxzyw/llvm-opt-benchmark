@@ -878,14 +878,14 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 599
   %12 = load i32, ptr %9, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph243, label %._crit_edge
+  br i1 %13, label %.lr.ph240, label %._crit_edge
 
-.lr.ph243:                                        ; preds = %.lr.ph180, %.critedge122
-  %.088178242 = phi i32 [ %.290, %.critedge122 ], [ -1, %.lr.ph180 ]
-  %.081179241 = phi ptr [ %.283, %.critedge122 ], [ null, %.lr.ph180 ]
-  %indvars.iv219240 = phi i64 [ %indvars.iv.next220, %.critedge122 ], [ 0, %.lr.ph180 ]
+.lr.ph240:                                        ; preds = %.lr.ph180, %.critedge122
+  %.088178239 = phi i32 [ %.290, %.critedge122 ], [ -1, %.lr.ph180 ]
+  %.081179238 = phi ptr [ %.283, %.critedge122 ], [ null, %.lr.ph180 ]
+  %indvars.iv216237 = phi i64 [ %indvars.iv.next217, %.critedge122 ], [ 0, %.lr.ph180 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv219240
+  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv216237
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -894,7 +894,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %.not113 = icmp eq ptr %20, null
   br i1 %.not113, label %31, label %21
 
-21:                                               ; preds = %.lr.ph243
+21:                                               ; preds = %.lr.ph240
   %22 = load i32, ptr %20, align 4
   %23 = icmp eq i32 %22, 7
   br i1 %23, label %24, label %31
@@ -911,7 +911,7 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   %.not154 = icmp eq i64 %30, 0
   br i1 %.not154, label %.critedge, label %.critedge122
 
-31:                                               ; preds = %21, %.lr.ph243
+31:                                               ; preds = %21, %.lr.ph240
   %32 = call ptr @make_ands_implicit(ptr noundef %20) #7
   %.not114 = icmp eq ptr %32, null
   br i1 %.not114, label %.critedge122, label %.lr.ph
@@ -929,8 +929,8 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
 
 .lr.ph175:                                        ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
-  %.391163173 = phi i32 [ %.593.ph, %63 ], [ %.088178242, %.lr.ph ]
-  %.384164172 = phi ptr [ %.586.ph, %63 ], [ %.081179241, %.lr.ph ]
+  %.391163173 = phi i32 [ %.593.ph, %63 ], [ %.088178239, %.lr.ph ]
+  %.384164172 = phi ptr [ %.586.ph, %63 ], [ %.081179238, %.lr.ph ]
   %41 = load ptr, ptr %34, align 8
   %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
@@ -978,13 +978,13 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
   br i1 %66, label %.lr.ph175, label %.critedge122
 
 .critedge122:                                     ; preds = %63, %31, %.lr.ph, %28
-  %.290 = phi i32 [ %.088178242, %28 ], [ %.088178242, %31 ], [ %.088178242, %.lr.ph ], [ %.593.ph, %63 ]
-  %.283 = phi ptr [ %.081179241, %28 ], [ %.081179241, %31 ], [ %.081179241, %.lr.ph ], [ %.586.ph, %63 ]
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219240, 1
+  %.290 = phi i32 [ %.088178239, %28 ], [ %.088178239, %31 ], [ %.088178239, %.lr.ph ], [ %.593.ph, %63 ]
+  %.283 = phi ptr [ %.081179238, %28 ], [ %.081179238, %31 ], [ %.081179238, %.lr.ph ], [ %.586.ph, %63 ]
+  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216237, 1
   %67 = load i32, ptr %9, align 4
   %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next220, %68
-  br i1 %69, label %.lr.ph243, label %._crit_edge
+  %69 = icmp slt i64 %indvars.iv.next217, %68
+  br i1 %69, label %.lr.ph240, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge122, %.lr.ph180, %5
   %.088.lcssa = phi i32 [ -1, %5 ], [ -1, %.lr.ph180 ], [ %.290, %.critedge122 ]
@@ -997,21 +997,21 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
 .preheader:                                       ; preds = %._crit_edge
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4
-  %.not118206 = icmp sgt i32 %73, 0
-  br i1 %.not118206, label %.lr.ph213, label %.critedge124
+  %.not118205 = icmp sgt i32 %73, 0
+  br i1 %.not118205, label %.lr.ph211, label %.critedge124
 
-.lr.ph213:                                        ; preds = %.preheader
+.lr.ph211:                                        ; preds = %.preheader
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
   br label %75
 
-75:                                               ; preds = %.lr.ph213, %.critedge126
-  %76 = phi i32 [ %73, %.lr.ph213 ], [ %93, %.critedge126 ]
-  %indvars.iv225 = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next226, %.critedge126 ]
-  %.7212 = phi ptr [ %.081.lcssa, %.lr.ph213 ], [ %.8.lcssa, %.critedge126 ]
-  %.795211 = phi i32 [ %.088.lcssa, %.lr.ph213 ], [ %.896.lcssa, %.critedge126 ]
-  %indvars229 = trunc i64 %indvars.iv225 to i32
+75:                                               ; preds = %.lr.ph211, %.critedge126
+  %76 = phi i32 [ %73, %.lr.ph211 ], [ %93, %.critedge126 ]
+  %indvars.iv222 = phi i64 [ 0, %.lr.ph211 ], [ %indvars.iv.next223, %.critedge126 ]
+  %.7210 = phi ptr [ %.081.lcssa, %.lr.ph211 ], [ %.8.lcssa, %.critedge126 ]
+  %.795209 = phi i32 [ %.088.lcssa, %.lr.ph211 ], [ %.896.lcssa, %.critedge126 ]
+  %indvars226 = trunc i64 %indvars.iv222 to i32
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv225
+  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv222
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %.not119 = icmp eq ptr %79, null
@@ -1019,39 +1019,36 @@ define dso_local noundef zeroext i1 @apply_child_basequals(ptr noundef %0, ptr n
 
 .lr.ph190:                                        ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %82 = load i32, ptr %80, align 4
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph203.preheader, label %.critedge126
+  %82 = call i32 @llvm.umin.i32(i32 %.795209, i32 %indvars226)
+  %83 = load i32, ptr %80, align 4
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %.lr.ph202, label %.critedge126
 
-.lr.ph203.preheader:                              ; preds = %.lr.ph190
-  %84 = call i32 @llvm.umin.i32(i32 %.795211, i32 %indvars229)
-  br label %.lr.ph203
-
-.lr.ph203:                                        ; preds = %.lr.ph203.preheader, %.lr.ph203
-  %indvars.iv222 = phi i64 [ 0, %.lr.ph203.preheader ], [ %indvars.iv.next223, %.lr.ph203 ]
-  %.8188200 = phi ptr [ %.7212, %.lr.ph203.preheader ], [ %89, %.lr.ph203 ]
+.lr.ph202:                                        ; preds = %.lr.ph190, %.lr.ph202
+  %indvars.iv219 = phi i64 [ %indvars.iv.next220, %.lr.ph202 ], [ 0, %.lr.ph190 ]
+  %.8188200 = phi ptr [ %89, %.lr.ph202 ], [ %.7210, %.lr.ph190 ]
   %85 = load ptr, ptr %81, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv222
+  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv219
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @make_restrictinfo(ptr noundef %0, ptr noundef %87, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %indvars229, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %88 = call ptr @make_restrictinfo(ptr noundef %0, ptr noundef %87, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %indvars226, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %89 = call ptr @lappend(ptr noundef %.8188200, ptr noundef %88) #7
-  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %90 = load i32, ptr %80, align 4
   %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next223, %91
-  br i1 %92, label %.lr.ph203, label %.critedge126.loopexit
+  %92 = icmp slt i64 %indvars.iv.next220, %91
+  br i1 %92, label %.lr.ph202, label %.critedge126.loopexit
 
-.critedge126.loopexit:                            ; preds = %.lr.ph203
+.critedge126.loopexit:                            ; preds = %.lr.ph202
   %.pre = load i32, ptr %72, align 4
   br label %.critedge126
 
 .critedge126:                                     ; preds = %.critedge126.loopexit, %.lr.ph190, %75
   %93 = phi i32 [ %76, %75 ], [ %76, %.lr.ph190 ], [ %.pre, %.critedge126.loopexit ]
-  %.896.lcssa = phi i32 [ %.795211, %75 ], [ %.795211, %.lr.ph190 ], [ %84, %.critedge126.loopexit ]
-  %.8.lcssa = phi ptr [ %.7212, %75 ], [ %.7212, %.lr.ph190 ], [ %89, %.critedge126.loopexit ]
-  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %.896.lcssa = phi i32 [ %.795209, %75 ], [ %.795209, %.lr.ph190 ], [ %82, %.critedge126.loopexit ]
+  %.8.lcssa = phi ptr [ %.7210, %75 ], [ %.7210, %.lr.ph190 ], [ %89, %.critedge126.loopexit ]
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %94 = sext i32 %93 to i64
-  %.not118 = icmp slt i64 %indvars.iv.next226, %94
+  %.not118 = icmp slt i64 %indvars.iv.next223, %94
   br i1 %.not118, label %75, label %.critedge124, !llvm.loop !11
 
 .critedge124:                                     ; preds = %.critedge126, %.preheader, %._crit_edge

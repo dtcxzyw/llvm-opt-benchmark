@@ -13930,10 +13930,10 @@ define noalias noundef ptr @Gia_RsbSolve(ptr noundef readonly captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !28
   %5 = tail call i32 @Gia_RsbCollectValid(ptr noundef %0)
-  %.not46 = icmp eq i32 %5, 0
-  br i1 %.not46, label %.preheader45, label %.lr.ph
+  %.not45 = icmp eq i32 %5, 0
+  br i1 %.not45, label %.preheader44, label %.lr.ph
 
-.preheader45:                                     ; preds = %.lr.ph, %1
+.preheader44:                                     ; preds = %.lr.ph, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -13945,10 +13945,10 @@ define noalias noundef ptr @Gia_RsbSolve(ptr noundef readonly captures(none) %0)
   tail call void @Gia_RsbUpdateAdd(ptr noundef nonnull %0, i32 noundef %10)
   %11 = tail call i32 @Gia_RsbCollectValid(ptr noundef nonnull %0)
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.preheader45, label %.lr.ph, !llvm.loop !305
+  br i1 %.not, label %.preheader44, label %.lr.ph, !llvm.loop !305
 
-12:                                               ; preds = %.preheader45, %Vec_IntAppend.exit
-  %.050 = phi i32 [ 0, %.preheader45 ], [ %148, %Vec_IntAppend.exit ]
+12:                                               ; preds = %.preheader44, %Vec_IntAppend.exit
+  %.049 = phi i32 [ 0, %.preheader44 ], [ %148, %Vec_IntAppend.exit ]
   %13 = tail call i32 @Abc_Random(i32 noundef 0) #32
   %14 = load ptr, ptr %2, align 8, !tbaa !277
   %15 = getelementptr i8, ptr %14, i64 4
@@ -13956,7 +13956,7 @@ define noalias noundef ptr @Gia_RsbSolve(ptr noundef readonly captures(none) %0)
   %16 = urem i32 %13, %.val26
   %17 = add nuw i32 %16, 1
   %18 = icmp ult i32 %16, 2147483647
-  br i1 %18, label %.lr.ph48, label %.preheader
+  br i1 %18, label %.lr.ph47, label %.preheader
 
 .preheader:                                       ; preds = %Gia_RsbFindNodeToRemove.exit, %12
   %19 = load ptr, ptr %8, align 8, !tbaa !280
@@ -13964,19 +13964,19 @@ define noalias noundef ptr @Gia_RsbSolve(ptr noundef readonly captures(none) %0)
   store i32 0, ptr %20, align 4, !tbaa !28
   %21 = load ptr, ptr %6, align 8, !tbaa !279
   %22 = getelementptr i8, ptr %21, i64 4
-  %.val1718.i49 = load i32, ptr %22, align 4, !tbaa !97
-  %23 = icmp sgt i32 %.val1718.i49, 0
+  %.val1718.i48 = load i32, ptr %22, align 4, !tbaa !97
+  %23 = icmp sgt i32 %.val1718.i48, 0
   br i1 %23, label %.lr.ph.i28, label %Gia_RsbCollectValid.exit.thread
 
-.lr.ph48:                                         ; preds = %12, %Gia_RsbFindNodeToRemove.exit
-  %.02247 = phi i32 [ %50, %Gia_RsbFindNodeToRemove.exit ], [ 0, %12 ]
+.lr.ph47:                                         ; preds = %12, %Gia_RsbFindNodeToRemove.exit
+  %.02246 = phi i32 [ %50, %Gia_RsbFindNodeToRemove.exit ], [ 0, %12 ]
   %24 = load ptr, ptr %2, align 8, !tbaa !277
   %25 = getelementptr i8, ptr %24, i64 4
   %.val.i = load i32, ptr %25, align 4, !tbaa !28
   %26 = icmp sgt i32 %.val.i, 0
   br i1 %26, label %.lr.ph.i, label %Gia_RsbFindNodeToRemove.exit
 
-.lr.ph.i:                                         ; preds = %.lr.ph48
+.lr.ph.i:                                         ; preds = %.lr.ph47
   %.not28.i.i = icmp eq i32 %.val.i, 31
   %27 = shl nuw nsw i32 1, %.val.i
   %wide.trip.count.i.i = zext nneg i32 %27 to i64
@@ -14034,12 +14034,12 @@ Gia_RsbRemovalCost.exit.loopexit.i:               ; preds = %47
   %exitcond.not.i = icmp eq i32 %49, %.val.i
   br i1 %exitcond.not.i, label %Gia_RsbFindNodeToRemove.exit, label %.lr.ph.i.i, !llvm.loop !299
 
-Gia_RsbFindNodeToRemove.exit:                     ; preds = %Gia_RsbRemovalCost.exit.loopexit.i, %.lr.ph.i, %.lr.ph48
-  %.015.lcssa.i = phi i32 [ -1, %.lr.ph48 ], [ 0, %.lr.ph.i ], [ %spec.select.i, %Gia_RsbRemovalCost.exit.loopexit.i ]
+Gia_RsbFindNodeToRemove.exit:                     ; preds = %Gia_RsbRemovalCost.exit.loopexit.i, %.lr.ph47, %.lr.ph.i
+  %.015.lcssa.i = phi i32 [ -1, %.lr.ph47 ], [ 0, %.lr.ph.i ], [ %spec.select.i, %Gia_RsbRemovalCost.exit.loopexit.i ]
   tail call void @Gia_RsbUpdateRemove(ptr noundef %0, i32 noundef %.015.lcssa.i)
-  %50 = add nuw nsw i32 %.02247, 1
+  %50 = add nuw nsw i32 %.02246, 1
   %51 = icmp slt i32 %50, %17
-  br i1 %51, label %.lr.ph48, label %.preheader, !llvm.loop !306
+  br i1 %51, label %.lr.ph47, label %.preheader, !llvm.loop !306
 
 .lr.ph.i28:                                       ; preds = %.preheader, %.lr.ph.i28.backedge
   %52 = phi ptr [ %.be, %.lr.ph.i28.backedge ], [ %21, %.preheader ]
@@ -14265,7 +14265,7 @@ Vec_IntPush.exit.i34:                             ; preds = %139, %Vec_IntGrow.e
   br i1 %147, label %115, label %Vec_IntAppend.exit, !llvm.loop !100
 
 Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i34, %111, %108
-  %148 = add nuw nsw i32 %.050, 1
+  %148 = add nuw nsw i32 %.049, 1
   %exitcond.not = icmp eq i32 %148, 100
   br i1 %exitcond.not, label %149, label %12, !llvm.loop !308
 

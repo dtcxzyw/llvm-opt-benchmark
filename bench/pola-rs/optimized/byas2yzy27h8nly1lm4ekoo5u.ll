@@ -28227,8 +28227,8 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary5basic13array_to_page1
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i, %.preheader.lr.ph.i.i
-  %.sroa.013.1103.i.i = phi i64 [ %.sroa.013.0.i.i, %.preheader.lr.ph.i.i ], [ %.us-phi81.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
-  %.sroa.07.0102.i.i = phi i64 [ %98, %.preheader.lr.ph.i.i ], [ %134, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
+  %.sroa.013.1102.i.i = phi i64 [ %.sroa.013.0.i.i, %.preheader.lr.ph.i.i ], [ %.us-phi81.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
+  %.sroa.07.0101.i.i = phi i64 [ %98, %.preheader.lr.ph.i.i ], [ %134, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
   %.promoted.i.i = load i64, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !2177, !noalias !2189
   %106 = load i64, ptr %.sroa.55.0..sroa_idx.i, align 8, !range !427, !alias.scope !2194, !noalias !2199, !noundef !3
   %107 = icmp ugt i64 %106, 1
@@ -28239,7 +28239,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary5basic13array_to_page1
   br label %.preheader.split.us.i.i
 
 .preheader.split.us.i.i:                          ; preds = %.preheader.split.us.i.i.preheader, %111
-  %.sroa.013.280.us.i.i = phi i64 [ %117, %111 ], [ %.sroa.013.1103.i.i, %.preheader.split.us.i.i.preheader ]
+  %.sroa.013.280.us.i.i = phi i64 [ %117, %111 ], [ %.sroa.013.1102.i.i, %.preheader.split.us.i.i.preheader ]
   %.sroa.03.079.us.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i38.us.i.i, %111 ], [ -9223372036854775808, %.preheader.split.us.i.i.preheader ]
   %.sroa.043.078.us.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i37.us.i.i, %111 ], [ 9223372036854775807, %.preheader.split.us.i.i.preheader ]
   %.sroa.4.077.us.i.i = phi i64 [ %118, %111 ], [ 0, %.preheader.split.us.i.i.preheader ]
@@ -28293,7 +28293,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary5basic13array_to_page1
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h711952a715df6bb7E.exit.i.i": ; preds = %111, %.preheader.split.us.i.i, %.preheader.split.i.i
   %.us-phi.i.i = phi i64 [ 9223372036854775807, %.preheader.split.i.i ], [ %.sroa.043.078.us.i.i, %.preheader.split.us.i.i ], [ %.sroa.0.0.sroa.speculated.i37.us.i.i, %111 ]
-  %.us-phi81.i.i = phi i64 [ %.sroa.013.1103.i.i, %.preheader.split.i.i ], [ %.sroa.013.280.us.i.i, %.preheader.split.us.i.i ], [ %117, %111 ]
+  %.us-phi81.i.i = phi i64 [ %.sroa.013.1102.i.i, %.preheader.split.i.i ], [ %.sroa.013.280.us.i.i, %.preheader.split.us.i.i ], [ %117, %111 ]
   %133 = invoke noundef i64 @"_ZN113_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h3e1585d025f825b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
           to label %.noexc29 unwind label %.loopexit.split-lp.loopexit
 
@@ -28302,7 +28302,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary5basic13array_to_page1
           to label %.noexc30 unwind label %.loopexit.split-lp.loopexit
 
 .noexc30:                                         ; preds = %.noexc29
-  %135 = sub i64 %.sroa.07.0102.i.i, %133
+  %135 = sub i64 %.sroa.07.0101.i.i, %133
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %135, i64 256)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18), !noalias !2182
   %136 = getelementptr inbounds nuw i64, ptr %23, i64 %.sroa.0.0.sroa.speculated.i.i.i
@@ -28358,7 +28358,7 @@ define hidden void @_ZN14polars_parquet5arrow5write6binary5basic13array_to_page1
           to label %.noexc35 unwind label %.loopexit.split-lp.loopexit
 
 .noexc35:                                         ; preds = %.noexc34
-  %147 = icmp eq i64 %.sroa.07.0102.i.i, %133
+  %147 = icmp eq i64 %.sroa.07.0101.i.i, %133
   br i1 %147, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i.i"
 
 _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i: ; preds = %164, %.noexc37, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i.i", %.noexc35
@@ -28536,9 +28536,9 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
   %.sroa.24.1.i = phi i64 [ %197, %200 ], [ %.sroa.24.2.i, %179 ], [ %.sroa.24.2.i, %189 ]
   %.sroa.28.1.i = phi i64 [ %198, %200 ], [ 0, %189 ], [ %.sroa.28.2.i, %179 ]
   %.sroa.32.1.i = phi i64 [ %.sroa.32.3.i, %200 ], [ %.sroa.32.2.i, %179 ], [ %.sroa.32.2.i, %189 ]
-  %.promoted153.i.i = phi ptr [ %187, %200 ], [ null, %179 ], [ null, %189 ]
+  %.promoted152.i.i = phi ptr [ %187, %200 ], [ null, %179 ], [ null, %189 ]
   %.promoted.i20.i = phi i64 [ %186, %200 ], [ %186, %189 ], [ %umin.i, %179 ]
-  %.promoted197.i.i = phi i64 [ %205, %200 ], [ %168, %179 ], [ %168, %189 ]
+  %.promoted196.i.i = phi i64 [ %205, %200 ], [ %168, %179 ], [ %168, %189 ]
   %206 = phi { i64, i64 } [ %204, %200 ], [ { i64 0, i64 undef }, %179 ], [ { i64 0, i64 undef }, %189 ]
   %207 = extractvalue { i64, i64 } %206, 0
   %208 = trunc nuw i64 %207 to i1
@@ -28563,7 +28563,7 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
           to label %.noexc52 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc52:                                         ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit32.i22.i"
-  %214 = icmp eq i64 %.promoted197.i.i, 0
+  %214 = icmp eq i64 %.promoted196.i.i, 0
   br i1 %214, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17h95c209d4772b8cebE.exit.i, label %.preheader.lr.ph.i23.i
 
 .preheader.lr.ph.i23.i:                           ; preds = %.noexc52
@@ -28576,36 +28576,36 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
   br label %.preheader.i24.i
 
 .preheader.i24.i:                                 ; preds = %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i, %.preheader.lr.ph.i23.i
-  %.sroa.013.1244.i.i = phi i64 [ %.sroa.013.0.i21.i, %.preheader.lr.ph.i23.i ], [ %.sroa.013.2.lcssa.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
-  %.sroa.07.0243.i.i = phi i64 [ %.promoted197.i.i, %.preheader.lr.ph.i23.i ], [ %.promoted119198.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
-  %.promoted157242.i.i = phi ptr [ %.promoted153.i.i, %.preheader.lr.ph.i23.i ], [ %.promoted154.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
-  %.promoted86163241.i.i = phi i64 [ %.promoted.i20.i, %.preheader.lr.ph.i23.i ], [ %.promoted86159.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
-  %.promoted104170240.i.i = phi i64 [ %.sroa.32.1.i, %.preheader.lr.ph.i23.i ], [ %.promoted104166.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
-  %.promoted98177239.i.i = phi ptr [ %.sroa.16.1.i, %.preheader.lr.ph.i23.i ], [ %.promoted98173.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
-  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted190237.i.i = phi i64 [ %.sroa.24.1.i, %.preheader.lr.ph.i23.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted187.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
-  %.promoted114196236.i.i = phi i64 [ %.sroa.28.1.i, %.preheader.lr.ph.i23.i ], [ %.promoted114193.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.sroa.013.1243.i.i = phi i64 [ %.sroa.013.0.i21.i, %.preheader.lr.ph.i23.i ], [ %.sroa.013.2.lcssa.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.sroa.07.0242.i.i = phi i64 [ %.promoted196.i.i, %.preheader.lr.ph.i23.i ], [ %.promoted119197.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.promoted156241.i.i = phi ptr [ %.promoted152.i.i, %.preheader.lr.ph.i23.i ], [ %.promoted153.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.promoted86162240.i.i = phi i64 [ %.promoted.i20.i, %.preheader.lr.ph.i23.i ], [ %.promoted86158.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.promoted104169239.i.i = phi i64 [ %.sroa.32.1.i, %.preheader.lr.ph.i23.i ], [ %.promoted104165.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.promoted98176238.i.i = phi ptr [ %.sroa.16.1.i, %.preheader.lr.ph.i23.i ], [ %.promoted98172.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted189236.i.i = phi i64 [ %.sroa.24.1.i, %.preheader.lr.ph.i23.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted186.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
+  %.promoted114195235.i.i = phi i64 [ %.sroa.28.1.i, %.preheader.lr.ph.i23.i ], [ %.promoted114192.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i ]
   br label %221
 
 221:                                              ; preds = %285, %.preheader.i24.i
-  %.promoted119199.i.i = phi i64 [ %.sroa.07.0243.i.i, %.preheader.i24.i ], [ %.promoted119198.i.i, %285 ]
-  %.promoted114195.i.i = phi i64 [ %.promoted114196236.i.i, %.preheader.i24.i ], [ %.promoted114193.i.i, %285 ]
-  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted189.i.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted190237.i.i, %.preheader.i24.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted187.i.i, %285 ]
-  %.promoted98176.i.i = phi ptr [ %.promoted98177239.i.i, %.preheader.i24.i ], [ %.promoted98173.i.i, %285 ]
-  %.promoted104169.i.i = phi i64 [ %.promoted104170240.i.i, %.preheader.i24.i ], [ %.promoted104166.i.i, %285 ]
-  %.promoted86162.i.i = phi i64 [ %.promoted86163241.i.i, %.preheader.i24.i ], [ %.promoted86159.i.i, %285 ]
-  %.promoted156.i.i = phi ptr [ %.promoted157242.i.i, %.preheader.i24.i ], [ %.promoted154.i.i, %285 ]
-  %.sroa.013.2149.i.i = phi i64 [ %.sroa.013.1244.i.i, %.preheader.i24.i ], [ %286, %285 ]
+  %.promoted119198.i.i = phi i64 [ %.sroa.07.0242.i.i, %.preheader.i24.i ], [ %.promoted119197.i.i, %285 ]
+  %.promoted114194.i.i = phi i64 [ %.promoted114195235.i.i, %.preheader.i24.i ], [ %.promoted114192.i.i, %285 ]
+  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted188.i.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted189236.i.i, %.preheader.i24.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted186.i.i, %285 ]
+  %.promoted98175.i.i = phi ptr [ %.promoted98176238.i.i, %.preheader.i24.i ], [ %.promoted98172.i.i, %285 ]
+  %.promoted104168.i.i = phi i64 [ %.promoted104169239.i.i, %.preheader.i24.i ], [ %.promoted104165.i.i, %285 ]
+  %.promoted86161.i.i = phi i64 [ %.promoted86162240.i.i, %.preheader.i24.i ], [ %.promoted86158.i.i, %285 ]
+  %.promoted155.i.i = phi ptr [ %.promoted156241.i.i, %.preheader.i24.i ], [ %.promoted153.i.i, %285 ]
+  %.sroa.013.2149.i.i = phi i64 [ %.sroa.013.1243.i.i, %.preheader.i24.i ], [ %286, %285 ]
   %.sroa.03.0148.i.i = phi i64 [ -9223372036854775808, %.preheader.i24.i ], [ %.sroa.0.0.sroa.speculated.i42.i.i, %285 ]
   %.sroa.047.0147.i.i = phi i64 [ 9223372036854775807, %.preheader.i24.i ], [ %.sroa.0.0.sroa.speculated.i41.i.i, %285 ]
   %.sroa.4.0146.i.i = phi i64 [ 0, %.preheader.i24.i ], [ %287, %285 ]
   %.sroa.7.0145.i.i = phi i64 [ 256, %.preheader.i24.i ], [ %223, %285 ]
-  %.promoted.i.i.i.i.i85144.i.i = phi ptr [ %.promoted157242.i.i, %.preheader.i24.i ], [ %.promoted.i.i.i.i.i83.i.i, %285 ]
-  %.promoted15.i.i.i.i.i91143.i.i = phi i64 [ %.promoted86163241.i.i, %.preheader.i24.i ], [ %.promoted15.i.i.i.i.i88.i.i, %285 ]
-  %.promoted19.i.i.i.i.i103141.i.i = phi ptr [ %.promoted98177239.i.i, %.preheader.i24.i ], [ %.promoted19.i.i.i.i.i100.i.i, %285 ]
-  %.promoted18.i.i.i.i.i109140.i.i = phi i64 [ %.promoted104170240.i.i, %.preheader.i24.i ], [ %.promoted18.i.i.i.i.i106.i.i, %285 ]
-  %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i113139.i.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted190237.i.i, %.preheader.i24.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i111.i.i, %285 ]
-  %.promoted16.i.i.i.i.i118138.i.i = phi i64 [ %.promoted114196236.i.i, %.preheader.i24.i ], [ %.promoted16.i.i.i.i.i116.i.i, %285 ]
-  %222 = phi i64 [ %.sroa.07.0243.i.i, %.preheader.i24.i ], [ %249, %285 ]
+  %.promoted.i.i.i.i.i85144.i.i = phi ptr [ %.promoted156241.i.i, %.preheader.i24.i ], [ %.promoted.i.i.i.i.i83.i.i, %285 ]
+  %.promoted15.i.i.i.i.i91143.i.i = phi i64 [ %.promoted86162240.i.i, %.preheader.i24.i ], [ %.promoted15.i.i.i.i.i88.i.i, %285 ]
+  %.promoted19.i.i.i.i.i103141.i.i = phi ptr [ %.promoted98176238.i.i, %.preheader.i24.i ], [ %.promoted19.i.i.i.i.i100.i.i, %285 ]
+  %.promoted18.i.i.i.i.i109140.i.i = phi i64 [ %.promoted104169239.i.i, %.preheader.i24.i ], [ %.promoted18.i.i.i.i.i106.i.i, %285 ]
+  %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i113139.i.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted189236.i.i, %.preheader.i24.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i111.i.i, %285 ]
+  %.promoted16.i.i.i.i.i118138.i.i = phi i64 [ %.promoted114195235.i.i, %.preheader.i24.i ], [ %.promoted16.i.i.i.i.i116.i.i, %285 ]
+  %222 = phi i64 [ %.sroa.07.0242.i.i, %.preheader.i24.i ], [ %249, %285 ]
   %223 = add nsw i64 %.sroa.7.0145.i.i, -1
   %.not.i.i.us.i.i.i.i.i.i111.i = icmp eq ptr %.promoted.i.i.i.i.i85144.i.i, null
   br i1 %.not.i.i.us.i.i.i.i.i.i111.i, label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8e2ff8cdb0344b9E.exit.i.i.i", label %.lr.ph.preheader.i
@@ -28621,10 +28621,10 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
   br i1 %226, label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8e2ff8cdb0344b9E.exit.i.i.i", label %.lr.ph, !llvm.loop !2264
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
-  %.promoted114194.i112.i148 = phi i64 [ %241, %.lr.ph.i ], [ %.promoted114195.i.i, %.lr.ph.preheader.i ]
-  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted188.i113.i147 = phi i64 [ %240, %.lr.ph.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted189.i.i, %.lr.ph.preheader.i ]
-  %.promoted98175.i115.i146 = phi ptr [ %.promoted98174.i.i, %.lr.ph.i ], [ %.promoted98176.i.i, %.lr.ph.preheader.i ]
-  %.promoted104168.i116.i145 = phi i64 [ %.promoted104167.i.i, %.lr.ph.i ], [ %.promoted104169.i.i, %.lr.ph.preheader.i ]
+  %.promoted114193.i112.i148 = phi i64 [ %241, %.lr.ph.i ], [ %.promoted114194.i.i, %.lr.ph.preheader.i ]
+  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted187.i113.i147 = phi i64 [ %240, %.lr.ph.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted188.i.i, %.lr.ph.preheader.i ]
+  %.promoted98174.i115.i146 = phi ptr [ %.promoted98173.i.i, %.lr.ph.i ], [ %.promoted98175.i.i, %.lr.ph.preheader.i ]
+  %.promoted104167.i116.i145 = phi i64 [ %.promoted104166.i.i, %.lr.ph.i ], [ %.promoted104168.i.i, %.lr.ph.preheader.i ]
   %.promoted16.i.i.i.i.i117.i118.i144 = phi i64 [ %241, %.lr.ph.i ], [ %.promoted16.i.i.i.i.i118138.i.i, %.lr.ph.preheader.i ]
   %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i112.i119.i143 = phi i64 [ %240, %.lr.ph.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i113139.i.i, %.lr.ph.preheader.i ]
   %.promoted18.i.i.i.i.i108.i120.i142 = phi i64 [ %.promoted18.i.i.i.i.i107.i.i, %.lr.ph.i ], [ %.promoted18.i.i.i.i.i109140.i.i, %.lr.ph.preheader.i ]
@@ -28650,8 +28650,8 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb82d6912de14aa1eE.exit.us.i.i.i.i.i.i.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb82d6912de14aa1eE.exit.us.i.i.i.i.i.i.i": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i", %.lr.ph
-  %.promoted98174.i.i = phi ptr [ %235, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i" ], [ %.promoted98175.i115.i146, %.lr.ph ]
-  %.promoted104167.i.i = phi i64 [ %234, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i" ], [ %.promoted104168.i116.i145, %.lr.ph ]
+  %.promoted98173.i.i = phi ptr [ %235, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i" ], [ %.promoted98174.i115.i146, %.lr.ph ]
+  %.promoted104166.i.i = phi i64 [ %234, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i" ], [ %.promoted104167.i116.i145, %.lr.ph ]
   %.promoted18.i.i.i.i.i107.i.i = phi i64 [ %234, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i" ], [ %.promoted18.i.i.i.i.i108.i120.i142, %.lr.ph ]
   %.promoted19.i.i.i.i.i101.i.i = phi ptr [ %235, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i" ], [ %.promoted19.i.i.i.i.i102.i121.i141, %.lr.ph ]
   %236 = phi ptr [ %235, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.us.i.i.i.i.i.i.i" ], [ %227, %.lr.ph ]
@@ -28672,13 +28672,13 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
   br label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8e2ff8cdb0344b9E.exit.i.i.i"
 
 "_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8e2ff8cdb0344b9E.exit.i.i.i": ; preds = %.lr.ph.i, %232, %.lr.ph.preheader.i, %243, %221
-  %.promoted119198.i.i = phi i64 [ %248, %243 ], [ %.promoted119199.i.i, %221 ], [ %.promoted119199.i.i, %.lr.ph.preheader.i ], [ %.promoted119199.i.i, %232 ], [ %.promoted119199.i.i, %.lr.ph.i ]
-  %.promoted114193.i.i = phi i64 [ %241, %243 ], [ %.promoted114195.i.i, %221 ], [ %.promoted114195.i.i, %.lr.ph.preheader.i ], [ %241, %.lr.ph.i ], [ %.promoted114194.i112.i148, %232 ]
-  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted187.i.i = phi i64 [ %240, %243 ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted189.i.i, %221 ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted189.i.i, %.lr.ph.preheader.i ], [ %240, %.lr.ph.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted188.i113.i147, %232 ]
-  %.promoted98173.i.i = phi ptr [ %.promoted98174.i.i, %243 ], [ %.promoted98176.i.i, %221 ], [ %.promoted98176.i.i, %.lr.ph.preheader.i ], [ %.promoted98174.i.i, %.lr.ph.i ], [ %.promoted98175.i115.i146, %232 ]
-  %.promoted104166.i.i = phi i64 [ %.promoted104167.i.i, %243 ], [ %.promoted104169.i.i, %221 ], [ %.promoted104169.i.i, %.lr.ph.preheader.i ], [ %.promoted104167.i.i, %.lr.ph.i ], [ %.promoted104168.i116.i145, %232 ]
-  %.promoted86159.i.i = phi i64 [ %229, %243 ], [ %.promoted86162.i.i, %221 ], [ %.promoted86162.i.i, %.lr.ph.preheader.i ], [ 1, %.lr.ph.i ], [ %229, %232 ]
-  %.promoted154.i.i = phi ptr [ %230, %243 ], [ %.promoted156.i.i, %221 ], [ null, %.lr.ph.preheader.i ], [ null, %232 ], [ null, %.lr.ph.i ]
+  %.promoted119197.i.i = phi i64 [ %248, %243 ], [ %.promoted119198.i.i, %221 ], [ %.promoted119198.i.i, %.lr.ph.preheader.i ], [ %.promoted119198.i.i, %232 ], [ %.promoted119198.i.i, %.lr.ph.i ]
+  %.promoted114192.i.i = phi i64 [ %241, %243 ], [ %.promoted114194.i.i, %221 ], [ %.promoted114194.i.i, %.lr.ph.preheader.i ], [ %241, %.lr.ph.i ], [ %.promoted114193.i112.i148, %232 ]
+  %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted186.i.i = phi i64 [ %240, %243 ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted188.i.i, %221 ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted188.i.i, %.lr.ph.preheader.i ], [ %240, %.lr.ph.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.i.i.i.promoted187.i113.i147, %232 ]
+  %.promoted98172.i.i = phi ptr [ %.promoted98173.i.i, %243 ], [ %.promoted98175.i.i, %221 ], [ %.promoted98175.i.i, %.lr.ph.preheader.i ], [ %.promoted98173.i.i, %.lr.ph.i ], [ %.promoted98174.i115.i146, %232 ]
+  %.promoted104165.i.i = phi i64 [ %.promoted104166.i.i, %243 ], [ %.promoted104168.i.i, %221 ], [ %.promoted104168.i.i, %.lr.ph.preheader.i ], [ %.promoted104166.i.i, %.lr.ph.i ], [ %.promoted104167.i116.i145, %232 ]
+  %.promoted86158.i.i = phi i64 [ %229, %243 ], [ %.promoted86161.i.i, %221 ], [ %.promoted86161.i.i, %.lr.ph.preheader.i ], [ 1, %.lr.ph.i ], [ %229, %232 ]
+  %.promoted153.i.i = phi ptr [ %230, %243 ], [ %.promoted155.i.i, %221 ], [ null, %.lr.ph.preheader.i ], [ null, %232 ], [ null, %.lr.ph.i ]
   %249 = phi i64 [ %248, %243 ], [ %222, %221 ], [ %222, %.lr.ph.preheader.i ], [ %222, %232 ], [ %222, %.lr.ph.i ]
   %.promoted16.i.i.i.i.i116.i.i = phi i64 [ %241, %243 ], [ %.promoted16.i.i.i.i.i118138.i.i, %221 ], [ %.promoted16.i.i.i.i.i118138.i.i, %.lr.ph.preheader.i ], [ %241, %.lr.ph.i ], [ 0, %232 ]
   %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i111.i.i = phi i64 [ %240, %243 ], [ %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i113139.i.i, %221 ], [ %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i113139.i.i, %.lr.ph.preheader.i ], [ %240, %.lr.ph.i ], [ %.phi.trans.insert.i.i.i.i.i.i.i.promoted.i.i.i.i.i112.i119.i143, %232 ]
@@ -28694,7 +28694,7 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h711952a715df6bb7E.exit.i25.i": ; preds = %285, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8e2ff8cdb0344b9E.exit.i.i.i"
   %.sroa.047.0.lcssa.i.i = phi i64 [ %.sroa.047.0147.i.i, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8e2ff8cdb0344b9E.exit.i.i.i" ], [ %.sroa.0.0.sroa.speculated.i41.i.i, %285 ]
   %.sroa.013.2.lcssa.i.i = phi i64 [ %.sroa.013.2149.i.i, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd8e2ff8cdb0344b9E.exit.i.i.i" ], [ %286, %285 ]
-  %253 = sub i64 %.sroa.07.0243.i.i, %.promoted119198.i.i
+  %253 = sub i64 %.sroa.07.0242.i.i, %.promoted119197.i.i
   %.sroa.0.0.sroa.speculated.i.i26.i = call noundef i64 @llvm.umin.i64(i64 %253, i64 256)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9), !noalias !2241
   %254 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.0.0.sroa.speculated.i.i26.i
@@ -28750,12 +28750,12 @@ _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17hde36eb0da
           to label %.noexc57 unwind label %.loopexit
 
 .noexc57:                                         ; preds = %.noexc56
-  %265 = icmp eq i64 %.sroa.07.0243.i.i, %.promoted119198.i.i
+  %265 = icmp eq i64 %.sroa.07.0242.i.i, %.promoted119197.i.i
   br i1 %265, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i36.i"
 
 _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i37.i: ; preds = %284, %.noexc59, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i36.i", %.noexc57
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8), !noalias !2241
-  %266 = icmp eq i64 %.promoted119198.i.i, 0
+  %266 = icmp eq i64 %.promoted119197.i.i, 0
   br i1 %266, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17h95c209d4772b8cebE.exit.i, label %.preheader.i24.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i36.i": ; preds = %.noexc57
@@ -30191,7 +30191,7 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview5basic13array_to_page
   br label %"_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0f6964744eb21beE.exit.i.i"
 
 "_ZN123_$LT$polars_parquet..arrow..write..utils..ExactSizedIter$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0f6964744eb21beE.exit.i.i": ; preds = %84, %.noexc18
-  %.promoted82.i.i = phi ptr [ %85, %84 ], [ %70, %.noexc18 ]
+  %.promoted81.i.i = phi ptr [ %85, %84 ], [ %70, %.noexc18 ]
   %.promoted.i.i = phi i64 [ %88, %84 ], [ 0, %.noexc18 ]
   %89 = phi { i64, i64 } [ %87, %84 ], [ { i64 0, i64 undef }, %.noexc18 ]
   %90 = extractvalue { i64, i64 } %89, 0
@@ -30230,21 +30230,21 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview5basic13array_to_page
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i, %.preheader.lr.ph.i.i
-  %.sroa.013.196.i.i = phi i64 [ %.sroa.013.0.i.i, %.preheader.lr.ph.i.i ], [ %.sroa.013.2.lcssa.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
-  %.sroa.07.095.i.i = phi i64 [ %.promoted.i.i, %.preheader.lr.ph.i.i ], [ %.promoted7386.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
-  %.promoted8594.i.i = phi ptr [ %.promoted82.i.i, %.preheader.lr.ph.i.i ], [ %.promoted83.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
+  %.sroa.013.195.i.i = phi i64 [ %.sroa.013.0.i.i, %.preheader.lr.ph.i.i ], [ %.sroa.013.2.lcssa.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
+  %.sroa.07.094.i.i = phi i64 [ %.promoted.i.i, %.preheader.lr.ph.i.i ], [ %.promoted7385.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
+  %.promoted8493.i.i = phi ptr [ %.promoted81.i.i, %.preheader.lr.ph.i.i ], [ %.promoted82.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i ]
   br label %104
 
 104:                                              ; preds = %149, %.preheader.i.i
-  %.promoted7387.i.i = phi i64 [ %.sroa.07.095.i.i, %.preheader.i.i ], [ %.promoted7386.i.i, %149 ]
-  %.promoted84.i.i = phi ptr [ %.promoted8594.i.i, %.preheader.i.i ], [ %.promoted83.i.i, %149 ]
-  %.sroa.013.278.i.i = phi i64 [ %.sroa.013.196.i.i, %.preheader.i.i ], [ %150, %149 ]
+  %.promoted7386.i.i = phi i64 [ %.sroa.07.094.i.i, %.preheader.i.i ], [ %.promoted7385.i.i, %149 ]
+  %.promoted83.i.i = phi ptr [ %.promoted8493.i.i, %.preheader.i.i ], [ %.promoted82.i.i, %149 ]
+  %.sroa.013.278.i.i = phi i64 [ %.sroa.013.195.i.i, %.preheader.i.i ], [ %150, %149 ]
   %.sroa.03.077.i.i = phi i64 [ -9223372036854775808, %.preheader.i.i ], [ %.sroa.0.0.sroa.speculated.i43.i.i, %149 ]
   %.sroa.048.076.i.i = phi i64 [ 9223372036854775807, %.preheader.i.i ], [ %.sroa.0.0.sroa.speculated.i42.i.i, %149 ]
   %.sroa.4.075.i.i = phi i64 [ 0, %.preheader.i.i ], [ %151, %149 ]
   %.sroa.7.074.i.i = phi i64 [ 256, %.preheader.i.i ], [ %107, %149 ]
-  %105 = phi ptr [ %.promoted8594.i.i, %.preheader.i.i ], [ %115, %149 ]
-  %106 = phi i64 [ %.sroa.07.095.i.i, %.preheader.i.i ], [ %114, %149 ]
+  %105 = phi ptr [ %.promoted8493.i.i, %.preheader.i.i ], [ %115, %149 ]
+  %106 = phi i64 [ %.sroa.07.094.i.i, %.preheader.i.i ], [ %114, %149 ]
   %107 = add nsw i64 %.sroa.7.074.i.i, -1
   %108 = icmp eq ptr %105, %72
   br i1 %108, label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h652647744d1036ddE.exit.i.i.i", label %109
@@ -30258,8 +30258,8 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview5basic13array_to_page
   br label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h652647744d1036ddE.exit.i.i.i"
 
 "_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h652647744d1036ddE.exit.i.i.i": ; preds = %109, %104
-  %.promoted7386.i.i = phi i64 [ %113, %109 ], [ %.promoted7387.i.i, %104 ]
-  %.promoted83.i.i = phi ptr [ %110, %109 ], [ %.promoted84.i.i, %104 ]
+  %.promoted7385.i.i = phi i64 [ %113, %109 ], [ %.promoted7386.i.i, %104 ]
+  %.promoted82.i.i = phi ptr [ %110, %109 ], [ %.promoted83.i.i, %104 ]
   %114 = phi i64 [ %113, %109 ], [ %106, %104 ]
   %115 = phi ptr [ %110, %109 ], [ %72, %104 ]
   %116 = phi { i64, i64 } [ %112, %109 ], [ { i64 0, i64 undef }, %104 ]
@@ -30270,7 +30270,7 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview5basic13array_to_page
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h711952a715df6bb7E.exit.i.i": ; preds = %149, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h652647744d1036ddE.exit.i.i.i"
   %.sroa.048.0.lcssa.i.i = phi i64 [ %.sroa.048.076.i.i, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h652647744d1036ddE.exit.i.i.i" ], [ %.sroa.0.0.sroa.speculated.i42.i.i, %149 ]
   %.sroa.013.2.lcssa.i.i = phi i64 [ %.sroa.013.278.i.i, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h652647744d1036ddE.exit.i.i.i" ], [ %150, %149 ]
-  %119 = sub i64 %.sroa.07.095.i.i, %.promoted7386.i.i
+  %119 = sub i64 %.sroa.07.094.i.i, %.promoted7385.i.i
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef i64 @llvm.umin.i64(i64 %119, i64 256)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18), !noalias !2509
   %120 = getelementptr inbounds nuw i64, ptr %23, i64 %.sroa.0.0.sroa.speculated.i.i.i
@@ -30326,12 +30326,12 @@ define hidden void @_ZN14polars_parquet5arrow5write7binview5basic13array_to_page
           to label %.noexc26 unwind label %.loopexit
 
 .noexc26:                                         ; preds = %.noexc25
-  %131 = icmp eq i64 %.sroa.07.095.i.i, %.promoted7386.i.i
+  %131 = icmp eq i64 %.sroa.07.094.i.i, %.promoted7385.i.i
   br i1 %131, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i.i"
 
 _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i.i: ; preds = %148, %.noexc28, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i.i", %.noexc26
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %17), !noalias !2509
-  %132 = icmp eq i64 %.promoted7386.i.i, 0
+  %132 = icmp eq i64 %.promoted7385.i.i, 0
   br i1 %132, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17h17c997611c938f10E.exit.i, label %.preheader.i.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i.i": ; preds = %.noexc26
@@ -30606,28 +30606,28 @@ _ZN12polars_arrow5array5Array10null_count17ha8f749ff79251cdfE.exit.i: ; preds = 
   %235 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %236 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %.promoted.i34.i = load i64, ptr %219, align 8, !alias.scope !2569, !noalias !2572
-  %.promoted106.i.i = load i64, ptr %220, align 8, !alias.scope !2569, !noalias !2572
+  %.promoted105.i.i = load i64, ptr %220, align 8, !alias.scope !2569, !noalias !2572
   br label %.preheader.i35.i
 
 .preheader.i35.i:                                 ; preds = %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i, %.preheader.lr.ph.i33.i
-  %.promoted85110.i.i = phi i64 [ %.promoted106.i.i, %.preheader.lr.ph.i33.i ], [ %.promoted85107.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
-  %.promoted84105.i.i = phi i64 [ %.promoted.i34.i, %.preheader.lr.ph.i33.i ], [ %.promoted84102.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
-  %.sroa.013.1100.i.i = phi i64 [ %.sroa.013.0.i31.i, %.preheader.lr.ph.i33.i ], [ %.sroa.013.2.lcssa.i37.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
-  %.sroa.07.099.i.i = phi i64 [ %.val36.i.i, %.preheader.lr.ph.i33.i ], [ %.promoted93.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
+  %.promoted85109.i.i = phi i64 [ %.promoted105.i.i, %.preheader.lr.ph.i33.i ], [ %.promoted85106.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
+  %.promoted84104.i.i = phi i64 [ %.promoted.i34.i, %.preheader.lr.ph.i33.i ], [ %.promoted84101.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
+  %.sroa.013.199.i.i = phi i64 [ %.sroa.013.0.i31.i, %.preheader.lr.ph.i33.i ], [ %.sroa.013.2.lcssa.i37.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
+  %.sroa.07.098.i.i = phi i64 [ %.val36.i.i, %.preheader.lr.ph.i33.i ], [ %.promoted92.i.i, %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i ]
   br label %237
 
 237:                                              ; preds = %382, %.preheader.i35.i
-  %.promoted85109.i.i = phi i64 [ %.promoted85110.i.i, %.preheader.i35.i ], [ %.promoted85107.i.i, %382 ]
-  %.promoted84104.i.i = phi i64 [ %.promoted84105.i.i, %.preheader.i35.i ], [ %.promoted84102.i.i, %382 ]
-  %.promoted94.i.i = phi i64 [ %.sroa.07.099.i.i, %.preheader.i35.i ], [ %.promoted93.i.i, %382 ]
-  %238 = phi i64 [ %.promoted85110.i.i, %.preheader.i35.i ], [ %342, %382 ]
-  %239 = phi i64 [ %.promoted84105.i.i, %.preheader.i35.i ], [ %343, %382 ]
-  %.sroa.013.283.i.i = phi i64 [ %.sroa.013.1100.i.i, %.preheader.i35.i ], [ %383, %382 ]
+  %.promoted85108.i.i = phi i64 [ %.promoted85109.i.i, %.preheader.i35.i ], [ %.promoted85106.i.i, %382 ]
+  %.promoted84103.i.i = phi i64 [ %.promoted84104.i.i, %.preheader.i35.i ], [ %.promoted84101.i.i, %382 ]
+  %.promoted93.i.i = phi i64 [ %.sroa.07.098.i.i, %.preheader.i35.i ], [ %.promoted92.i.i, %382 ]
+  %238 = phi i64 [ %.promoted85109.i.i, %.preheader.i35.i ], [ %342, %382 ]
+  %239 = phi i64 [ %.promoted84104.i.i, %.preheader.i35.i ], [ %343, %382 ]
+  %.sroa.013.283.i.i = phi i64 [ %.sroa.013.199.i.i, %.preheader.i35.i ], [ %383, %382 ]
   %.sroa.03.082.i.i = phi i64 [ -9223372036854775808, %.preheader.i35.i ], [ %.sroa.0.0.sroa.speculated.i43.i53.i, %382 ]
   %.sroa.049.081.i.i = phi i64 [ 9223372036854775807, %.preheader.i35.i ], [ %.sroa.0.0.sroa.speculated.i42.i52.i, %382 ]
   %.sroa.4.080.i.i = phi i64 [ 0, %.preheader.i35.i ], [ %384, %382 ]
   %.sroa.7.079.i.i = phi i64 [ 256, %.preheader.i35.i ], [ %241, %382 ]
-  %240 = phi i64 [ %.sroa.07.099.i.i, %.preheader.i35.i ], [ %344, %382 ]
+  %240 = phi i64 [ %.sroa.07.098.i.i, %.preheader.i35.i ], [ %344, %382 ]
   %241 = add nsw i64 %.sroa.7.079.i.i, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !2576)
   %242 = icmp ult i64 %239, %238
@@ -30787,7 +30787,7 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask7get_u3217hf50314037013d373E.exit.i.i.i:
   br label %335
 
 335:                                              ; preds = %329, %237
-  %.promoted85108.i.i = phi i64 [ %334, %329 ], [ %.promoted85109.i.i, %237 ]
+  %.promoted85107.i.i = phi i64 [ %334, %329 ], [ %.promoted85108.i.i, %237 ]
   %336 = phi i64 [ %334, %329 ], [ %238, %237 ]
   %.lcssa.sink.i.i.i = phi i64 [ %327, %329 ], [ %239, %237 ]
   %337 = invoke noundef align 4 dereferenceable(16) ptr @"_ZN113_$LT$polars_arrow..buffer..immutable..Buffer$LT$T$GT$$u20$as$u20$polars_arrow..array..iterator..ArrayAccessor$GT$15value_unchecked17h864cc5f6356b3ef2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %230, i64 noundef %.lcssa.sink.i.i.i)
@@ -30802,9 +30802,9 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask7get_u3217hf50314037013d373E.exit.i.i.i:
   br label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6ca635f522bdecbE.exit.i.i.i"
 
 "_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6ca635f522bdecbE.exit.i.i.i": ; preds = %.preheader.i44.i.i, %.noexc51, %.preheader.i44.i.preheader.i
-  %.promoted85107.i.i = phi i64 [ %.promoted85108.i.i, %.noexc51 ], [ %.promoted85109.i.i, %.preheader.i44.i.preheader.i ], [ %.promoted85109.i.i, %.preheader.i44.i.i ]
-  %.promoted84102.i.i = phi i64 [ %338, %.noexc51 ], [ %.promoted84104.i.i, %.preheader.i44.i.preheader.i ], [ %327, %.preheader.i44.i.i ]
-  %.promoted93.i.i = phi i64 [ %341, %.noexc51 ], [ %.promoted94.i.i, %.preheader.i44.i.preheader.i ], [ %.promoted94.i.i, %.preheader.i44.i.i ]
+  %.promoted85106.i.i = phi i64 [ %.promoted85107.i.i, %.noexc51 ], [ %.promoted85108.i.i, %.preheader.i44.i.preheader.i ], [ %.promoted85108.i.i, %.preheader.i44.i.i ]
+  %.promoted84101.i.i = phi i64 [ %338, %.noexc51 ], [ %.promoted84103.i.i, %.preheader.i44.i.preheader.i ], [ %327, %.preheader.i44.i.i ]
+  %.promoted92.i.i = phi i64 [ %341, %.noexc51 ], [ %.promoted93.i.i, %.preheader.i44.i.preheader.i ], [ %.promoted93.i.i, %.preheader.i44.i.i ]
   %342 = phi i64 [ %336, %.noexc51 ], [ %238, %.preheader.i44.i.preheader.i ], [ %238, %.preheader.i44.i.i ]
   %343 = phi i64 [ %338, %.noexc51 ], [ %239, %.preheader.i44.i.preheader.i ], [ %327, %.preheader.i44.i.i ]
   %344 = phi i64 [ %341, %.noexc51 ], [ %240, %.preheader.i44.i.preheader.i ], [ %240, %.preheader.i44.i.i ]
@@ -30816,7 +30816,7 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask7get_u3217hf50314037013d373E.exit.i.i.i:
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h711952a715df6bb7E.exit.i36.i": ; preds = %382, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6ca635f522bdecbE.exit.i.i.i"
   %.sroa.049.0.lcssa.i.i = phi i64 [ %.sroa.049.081.i.i, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6ca635f522bdecbE.exit.i.i.i" ], [ %.sroa.0.0.sroa.speculated.i42.i52.i, %382 ]
   %.sroa.013.2.lcssa.i37.i = phi i64 [ %.sroa.013.283.i.i, %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6ca635f522bdecbE.exit.i.i.i" ], [ %383, %382 ]
-  %348 = sub i64 %.sroa.07.099.i.i, %.promoted93.i.i
+  %348 = sub i64 %.sroa.07.098.i.i, %.promoted92.i.i
   %.sroa.0.0.sroa.speculated.i.i38.i = call noundef i64 @llvm.umin.i64(i64 %348, i64 256)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9), !noalias !2552
   %349 = getelementptr inbounds nuw i64, ptr %14, i64 %.sroa.0.0.sroa.speculated.i.i38.i
@@ -30881,12 +30881,12 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask7get_u3217hf50314037013d373E.exit.i.i.i:
           to label %.noexc56 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc56:                                         ; preds = %.noexc55
-  %362 = icmp eq i64 %.sroa.07.099.i.i, %.promoted93.i.i
+  %362 = icmp eq i64 %.sroa.07.098.i.i, %.promoted92.i.i
   br i1 %362, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i49.i"
 
 _ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder15write_miniblock17h790ead467837a247E.exit.i51.i: ; preds = %381, %.noexc58, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i49.i", %.noexc56
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8), !noalias !2552
-  %363 = icmp eq i64 %.promoted93.i.i, 0
+  %363 = icmp eq i64 %.promoted92.i.i, 0
   br i1 %363, label %_ZN14polars_parquet7parquet8encoding15delta_bitpacked7encoder6encode17h3beb812e2b9168b3E.exit.i, label %.preheader.i35.i
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h28e40a8e9013de17E.exit.i49.i": ; preds = %.noexc56
